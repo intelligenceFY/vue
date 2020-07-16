@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.active{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	点击列表中的哪一项，该项文字变成红色
+	<div id="app">
+		<ul>
+			<li v-for="(m,index) in movies" @click="onload(m,index)" v-bind:class="{active:currentIndex == index}">{{m}}{{index}}</li>
+		</ul>
+	</div>
+<script type="text/javascript" src="../../js/vue.js">
+</script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			message:'nihao',
+			movies:['海王','星际穿越','完美世界','墨菲定律'],
+			currentIndex:0,
+		},
+		methods:{
+			onload:function(m,index){
+				this.currentIndex = index;
+			}
+		}
+		
+	})
+</script>
+</body>
+</html>

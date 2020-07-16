@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script type="text/javascript">
+	//es5之前因为if和for都没有块级作用域的概念，很多
+	//时候，都需要借助function,es6借助let,let有if和for的块级作用域
+	//1.变量作用域：变量在什么范围内是可用的
+	//2.没用块级作用域引起的问题：if的块级
+	//3.for块级，闭包可以解决该问题，因为函数是一个作用域
+	const btns = document.getElementsByTagName('button');
+	for(let i = 0; i < btns.length;i++){
+		btns[i].addEventListener('click',function(){
+			alert(i+'被点击');
+		})
+
+	}
+	// for(var i = 0; i < btns.length;i++){
+	// 	(function(num){
+	// 			btns[i].addEventListener('click',function(){
+	// 		alert(num+'被点击');
+	// 	})
+
+	// 	})(i)
+	
+	// }//闭包
+</script>
+</body>
+</html>

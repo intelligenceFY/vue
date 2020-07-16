@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<h2>{{message}},笨蛋猪！</h2>
+		<h2>{{fristName + ' '+ lastName}}</h2>
+		<h2>{{message}} {{message}}</h2>
+		<h2>{{counter*2}}</h2>
+		<h3 v-text="message">,笨蛋猪！</h3>
+		<!-- {{}}不仅可以直接写变量，也可以写简单的表达式 -->
+	</div>
+	
+<script type="text/javascript" src="../../js/vue.js">
+</script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			message:'你好！',
+			fristName:'kobe',
+			lastName:'bryant',
+			counter:'100'
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+*{
+	margin:0;
+	border:0;
+}
+table{
+	border:1px solid #999;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+th,td{
+	padding: 8px 16px;
+	border:1px solid #666;
+	text-align: center;
+}
+th{
+	background-color: #f7f7f7;
+	color: #999999;
+	font-weight: 600;
+}

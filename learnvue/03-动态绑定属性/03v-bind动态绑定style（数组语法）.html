@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<!-- {key（属性名）：value（属性值）} -->
+	<div id="app" :style="[baseStyle,baseStyle1]">{{message}}</div>
+<!-- 	<div id="app" :style="getStyles()">{{message}}</div> -->
+<script type="text/javascript" src="../../js/vue.js">
+</script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			message:'你好！',
+			baseStyle:{background:'red'},
+			baseStyle1:{fontSize:100+'px'}
+		},
+		methods:{
+			getStyles:function(){
+				return {
+					fontSize:this.fontSize+'px'
+				}
+			}
+		}
+	})
+</script>
+</body>
+</html>

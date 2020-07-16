@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		[v-cloak]{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" v-cloak>
+		<h2>{{message}},笨蛋猪！</h2>
+		<h2>{{fristName + ' '+ lastName}}</h2>
+		<h2>{{message}} {{message}}</h2>
+		<h2>{{counter*2}}</h2>
+		<!-- {{}}不仅可以直接写变量，也可以写简单的表达式 -->
+	</div>
+	
+<script type="text/javascript" src="../../js/vue.js">
+</script>
+<script type="text/javascript">
+	//在vue解析之前，div有一个属性v-colak
+	//在vue解析之后,div有没有一个属性v-colak
+	setTimeout(function function_name(argument) {
+		const app = new Vue({
+			el:'#app',
+			data:{
+				message:'你好！',
+				fristName:'kobe',
+				lastName:'bryant',
+				counter:'100'
+		}
+	})
+
+	},1000)
+		
+</script>
+</body>
+</html>

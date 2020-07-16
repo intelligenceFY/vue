@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //什么时候用箭头函数?需要把一个函数做为另一个函数的参数
+        // setTimeout(function() {
+        //     console.log(this);
+        // }, 1000)
+        // setTimeout(() => {
+        //     console.log(this);
+        // })
+        // 结论：箭头函数中的this是如何查找呢？？
+        // 答案：向外层作用域中，一层层查找this，直到有this的定义
+        // const obj = {
+        //     //对象里直接定义函数用以下aa()这种形式
+        //     aa() {
+        //         setTimeout(function() {
+        //             console.log(this); //window
+        //         })
+        //         setTimeout(() => {
+        //             console.log(this); //obj对象，无this变量，实际是向外找一层作用域，即aa函数作用域即obj
+        //         })
+        //     }
+        // }
+        // obj.aa();
+        const obj = {
+            //对象里直接定义函数用以下aa()这种形式
+            aa() {
+                setTimeout(function() {
+                    setTimeout(function() {
+                        console.log(this); //window
+                    })
+                    setTimeout(() => {
+                        console.log(this); //obj
+                    })
+                })
+                setTimeout(() => {
+                    setTimeout(function() {
+                        console.log(this); //window
+                    })
+                    setTimeout(() => {
+                        console.log(this); //window
+                    })
+                })
+            }
+        }
+        obj.aa();
+    </script>
+</body>
+
+</html>

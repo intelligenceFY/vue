@@ -1,0 +1,130 @@
+一、02vue列表展示（响应式）
+v-for指令（遍历）
+变量名 in 列表
+
+二、03计数器
+新的属性
+methods,该属性用于在Vue对象中定义方法。
+新指令
+v-on（响应）监听默认事件
+@click，该指令用于监听某个元素的点击事件，并且需要指定当发生点击时，执行的方法（方法通常是methods中定义的方法）
+@是v-on的语法糖（即简写）
+
+三、什么是MVVM？？？
+
+4、Vue中的MVVM（model ViewModel View）
+
+5、什么时候称之为方法methods？什么时候称之为函数function？
+在类里面的叫方法
+直接定义的就叫函数
+
+
+6、Vue的生命周期
+7、v-once的使用
+	不需要表达式
+	app.message="osllsl",不会随着message的改变而改变
+	详细：
+	只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。
+8、v-bind???
+	作用：动态绑定属性
+	<img v-bind:src="imgURL">
+	<a v-bind:href="url">百度一下</a>
+	<h2 v-bind:class="{类名1：布尔值，类名2：布尔值}">{{message}}</h2>,布尔值由后面动态修改
+	简写：：
+	动态绑定css样式
+	  对象语法
+	  数组语法
+9、计算属性
+  计算属性的setter和getter()方法
+  计算属性和methods对比：计算属性性能更高，vue内部对计算属性做了一层缓存。判断最终结果是否发生变化，若变化再调用，若不变则不需要。
+ 10.es6	补充
+  let/var
+  let有块级作用域，而var没有
+  const使用（指向对象，优先使用const）
+    1.const一被赋值后不能被修改
+    2.const必须在定义时就进行初始化赋值
+    3.常量的含义是指向的对象不能修改，但是可以改变对象内部的属性(字符串也是一个对象)
+ 11.v-on（响应）
+@click，该指令用于监听某个元素的点击事件，并且需要指定当发生点击时，执行的方法（方法通常是methods中定义的方法）
+@是v-on的语法糖（即简写）
+  v-on参数
+  情况一：如果该方法不需要额外的参数，那么方法后面的（）可以不添加。*如果方法本身中有一个参数，那么会默认将原生事件event参数传递进去
+  情况二：如果需要同时传入某个参数，同时需要event，可以通过$event传入事件
+  v-on修饰符
+  .stop,阻止冒泡
+  .prevent阻止
+  .{keyCode|keyAlias}只当事件是从特定键触发时才触发回调
+  .once只触发一次调用
+  .native 监听组件根元素的原生事件
+  12.小问题
+  13.当需要在显示与隐藏之前切换很频繁时，使用v-show；当只需要切换一次时，使用v-if
+  14.v-for遍历数组
+  15.filter/map/reduce
+  16.v-model
+    动态绑定并获取输入框的内容，可以用于textarea和input
+    1. radio为单选按钮，需设置name为相同，不然则会出现同时选中，若设置了v-model，也需设置相同，并且可以不设置name，然后radio会根据，model绑定的值动态选中，若没有则不选中
+    2.label可以让点击文字也出现框框选中的状态
+    3.select 多选multiple需要一次选择而不是一个一个点
+  17.vue组件化思想（component组件）???
+   注册组件的基本步骤：1.创建组件构造器，注册组件，使用组件
+   调用Vue.extend()方法创建组件（全局/局部）构造器（继承）
+   调用Vue.component(注册组件标签名，组件构造器)方法注册组件
+   在Vue实力的作用范围内使用组件
+   *必须挂载在Vue实例里面,有多个标签时，必须包含一个根（必须有一个外层的东西把它抱起来）
+   局部组件使用更多
+   组件不能访问vue实例里的数据。组件内部有保存自己东西的地方，其有一个data属性（必须是一个函数,为了保存自己的状态，避免相互影响），methods也可以有
+   v-bind，不支持驼峰，而是:c-info="info"
+   父子组件的通信
+     父传子：props
+     子传父：$emit
+   字符串转数字parseInt()或者乘以一个数字
+   一般的属性不会往Vue实例里面放
+  18.webpack
+  * npx webpack vscode
+    npm run build
+    npm istall --save-dev（开发时依赖）
+  js配置
+  样式配置
+  图片配置
+  es6语法处理
+  将es6转为es5
+    命令：npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
+    *按官网会报错，需单独提取一部分新建一个文件
+  配置vue（为了模块化来使用vue）
+    1.命令：npm istall --save（实际也要依赖）
+    2.import Vue from 'vue'导出
+    3.运行项目： 报错：bundle.js:1309 [Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.(found in <Root>)
+    原因：1.runtime-only->代码中，不可以有任何template
+          2.runtime-compiler->代码中，可以有template，因为compiler可以用于编译template(指定版本
+    解决：alias:{
+      vue$:'vue/dist/vue.esm.js'
+    }
+  创建.vue文件实现模块化
+  封装.vue文件
+  安装支持vue命令：npm install --save-dev vue-loader vue-template-compiler
+  配置
+    *报错：vue-loader was used without the corresponding plugin. Make sure to include VueLoaderPlugin in your webpack config.
+    解决：改版本好号   "vue-loader": "^13.0.0",运行npm install
+    7.10
+    1、plugin开发阶段不要丑化bound.js，发布才需要
+    2.压缩代码
+    3.搭建本地服务器
+    命令：npm install webpack-dev-server@2.9.1 --save-dev
+    配置：webpack.congig.js
+    devServer:{
+      contentBase:'./dist',//为哪一个文件夹提供本地服务，默认是根文件夹，我们这里要填./dist
+      inline: true,//页面实时刷新，即及时监听
+      // port:,//端口号默认8080
+      //historyApiFallback
+    }//编译打包时，实际这个配置不需要
+    打开网页不需要直接打包配置
+     "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev":"webpack-dev-server --open"//--open 本地服务器一启动就打开网页
+  },
+  4.webpack的优化即webpack配置的分离
+  创一个放所有配置的文件build（开发时、生产时都依赖的东西
+   分离后修改配置："build": "webpack --config ./build/dev.config.js",
+    "dev": "webpack-dev-server --config ./build/dev.config.js"）
+    不成功修改merge版本

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">{{message}}
+		<label for="male">
+			<input type="radio" id="male" name="sex" value="男" v-model="sex">男
+		</label>
+		<label for="female">
+			<input type="radio" id="female" name="sex" value="女" v-model="sex">女
+		</label>	
+		<h2>你选择的性别是{{sex}}</h2>	
+	</div>
+
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:"#app",
+		data:{
+			message:'你好',
+			sex:''
+		},
+		methods:{
+
+		}
+	})
+</script>
+</body>
+</html>

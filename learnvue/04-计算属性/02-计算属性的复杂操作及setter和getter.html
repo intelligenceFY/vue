@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<h2>{{fullName}}</h2>
+		<h3 v-pre>总价格：{{totalPrice}}</h3>
+	</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			firstName:'Lebron',
+			LastName:'James',
+			books:[
+				{id:1100,name:'代码大全',price:109},
+				{id:1101,name:'深入理解计算机原理',price:59},
+				{id:1102,name:'现代操作系统',price:69},
+
+			]
+		},
+		computed:{//计算属性,使用时不要加小括号
+			fullName:{
+				// setter
+				// set:function(newValue){
+				// 	const name = newValue.split(' ');
+				// 	this.firstName = name[0];
+				// 	this.LastName = name[1];
+				// },
+				//计算属性一般没有set方法，只读属性
+				//getter
+				get:function(){
+					return this.firstName + ' ' +this.LastName;
+				}
+			},
+			// fullName:function(){
+			// 	return this.firstName + ' ' +this.LastName;
+			// }get方法的省略
+		},
+	})
+</script>
+</body>
+</html>

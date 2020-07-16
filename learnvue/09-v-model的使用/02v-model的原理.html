@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">{{message}}
+<!-- 		<input type="text" :value="message" v-on:input="valueChange"> -->
+		<input type="text" :value = "message" @input="message=$event.target.value">
+	</div>
+
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:"#app",
+		data:{
+			message:'你好'
+		},
+		methods:{
+			valueChange(event){
+				console.log(2222);
+				this.message = event.target.value;
+			}
+		}
+	})
+</script>
+</body>
+</html>

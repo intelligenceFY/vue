@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<cpn>
+			<span slot="center">4</span>
+		</cpn>
+	</div>
+	<template id="cpn">
+		<div>
+			<slot>
+				<span>左</span>
+			</slot>
+			<slot name="center">
+				<span>右</span>
+			</slot>
+			<slot>
+				<span>中</span>
+			</slot>
+		</div>
+	</template>
+<script type="text/javascript" src="../../js/vue.js">
+</script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			message:'nihao'
+		},
+		components:{
+			cpn:{
+				template:'#cpn'
+			}
+		}
+	})
+</script>
+</body>
+</html>

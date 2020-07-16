@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<cpn :c-info="info"  :child-my-message="message"></cpn>
+	</div>
+	<template id="cpn">
+		<div>
+			<h2>{{cInfo}}</h2>
+			<h2>{{childMyMessage}}</h2>
+		</div>
+	</template>
+<script type="text/javascript" src="../../js/vue.js">
+</script>
+<script type="text/javascript">
+	const cpn ={
+		template:'#cpn',
+		//一般为对象
+		props:{
+			cInfo:{
+				type:Object,
+				default(){
+					return{
+
+					}
+				}
+			},
+			childMyMessage:{
+				type:String,
+				default(){
+					return{
+
+					}
+				}
+			}
+		}
+	}
+	const app = new Vue({
+		el:'#app',
+		data:{
+			info:{
+				name:'why',
+				age:18,
+				height:1.88
+			},
+			message:'aa'
+		},
+		components:{
+			cpn
+		}
+	})
+</script>
+</body>
+</html>

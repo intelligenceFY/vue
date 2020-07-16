@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // resolve,reject本身也是函数
+        // new Promise((resolve, reject) => {
+        //   //第一次网络请求
+        //     setTimeout(() => {
+        //         resolve();
+
+        //     }, 1000)
+        // }).then(() => {
+        //   //第一次拿到结果的处理代码
+        //     console.log('hellow world')
+        //     console.log('hellow world')
+        //     console.log('hellow world')
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve;
+        //         }, 1000)
+        //     }).then(() => {
+        //         console.log('hellow world')
+        //         console.log('hellow world')
+        //         console.log('hellow world')
+        //     })
+        // })
+        // 什么时候需要用到promise？一般情况下是有异步操作时进行封装
+        //new ->构造函数（1.保存状态信息，2.执行传入的函数）
+        //在执行传入的回调函数时，会传入两个参数（其本身也是函数)
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                //成功的时候
+                resolve('hello world')
+                    // 失败的时候
+                reject('error')
+            }, 1000)
+        }).then((data) => {
+            console.log(data);
+            //1.100行的处理代码
+        }).catch((err) => {
+            console.log(err);
+        })
+    </script>
+</body>
+
+</html>

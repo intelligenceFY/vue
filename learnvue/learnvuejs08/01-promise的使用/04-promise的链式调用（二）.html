@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 请求一：
+        //请求二：
+
+        //wraaped into
+        //网络请求：aaa->自己处理（10行）
+        // 处理：aaa111->自己处理（10行）
+        //处理：aaa111222->自己处理
+        // new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve('aaa');
+        //         }, 1000)
+        //     }).then((res) => {
+        //         // 1.自己处理十行代码
+        //         console.log(res, "第一层的十行处理代码")
+        //             // 2.对结果进行第一次处理
+        //         return new Promise((resolve, reject) => {
+        //             // resolve(res + '111')
+        //             reject('error')
+        //         })
+        //     }).then(res => {
+        //         console.log(res, "第2层的十行处理代码");
+        //         return new Promise(resolve => {
+        //             resolve(res + '222')
+        //         })
+        //     }).then(res => {
+        //         console.log(res, "第3层的十行处理代码");
+        //     }).catch(err => {
+        //         console.log(err)
+        //     })
+        // 2.简写还可//省略掉promise.resolve
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('aaa');
+            }, 1000)
+        }).then((res) => {
+            // 1.自己处理十行代码
+            console.log(res, "第一层的十行处理代码")
+                // 2.对结果进行第一次处理
+                // return Promise.reject('error message')
+            throw 'error message'
+
+        }).then(res => {
+            console.log(res, "第2层的十行处理代码");
+            return Promise.resolve(res + '222')
+        }).then(res => {
+            console.log(res, "第3层的十行处理代码");
+        }).catch(err => {
+            console.log(err)
+        })
+    </script>
+</body>
+
+</html>

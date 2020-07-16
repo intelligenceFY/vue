@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="item in letters">
+				{{item}}
+			</li>
+		</ul>
+		<button @click="btn">anniu</button>
+	</div>
+	
+<script type="text/javascript" src="../../js/vue.js">
+</script>
+<script type="text/javascript" >
+	const app = new Vue({
+		el:'#app',
+		data:{
+			letters:['A','B','C']
+		},
+		methods:{
+			btn(){
+				//1.push方法，在尾部添加元素
+				// this.letters.push('5555');
+				//2.通过索引值修改数组中的元素
+				//pop();删除数组最后一个元素
+				//shift();删除数组的第一个元素
+				//unshift();在数组最前面添加元素
+				//splice();删除元素（第二个参数传入要删除几个元素，如果没有传就删除后面所有的元素）/插入元素（第二个参数，传入0，后面跟上要插入的元素）/替换元素（第二个参数表示我们要替换几个元素，后面是用于替换前面的元素）
+				//sort();
+				//reverse();
+				// this.letters[0]='nnn';//不是响应式
+				Vue.set(this.letters,0,'ddddd')
+			}
+		}
+	})
+</script>
+</body>
+</html>

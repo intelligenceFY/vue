@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<cpn></cpn>
+	</div>
+	<template id="cpn">
+		<div>
+			我是cpn组件
+			<ccpn></ccpn>
+		</div>
+	</template>
+	<template id="ccpn">
+		<div>
+			我是子组件
+		<button @click="btn">子访问父</button>			
+		</div>
+	</template>
+<script type="text/javascript" src="../../js/vue.js">
+</script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			message:'nihao'
+		},
+		components:{
+			cpn:{
+				template:'#cpn',
+				data(){
+					return{
+						name:'aaaa'
+					}
+				},
+				components:{
+					ccpn:{
+						template:'#ccpn',
+						methods:{
+							btn(){
+							// 1.访问父组件
+							console.log(this.$parent.name);
+							//访问根组件
+							console.log(this.$root.message);
+							}
+						}
+					}
+
+				}
+			}
+		}
+	})
+</script>
+</body>
+</html>

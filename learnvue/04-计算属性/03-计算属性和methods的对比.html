@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<!-- 1.直接拼接 ：语法过于繁琐-->
+		<h2>{{firstName + ' ' + LastName}}</h2>
+		<h2>{{firstName}} {{LastName}}</h2>
+		<!-- 2.通过定义methods -->
+<!-- 		<h2>{{getFullName()}}</h2>
+		<h2>{{getFullName()}}</h2>
+		<h2>{{getFullName()}}</h2> -->
+		<!-- 3.通过compute -->
+		<h2>{{fullName}}</h2>
+		<h3 v-pre>总价格：{{totalPrice}}</h3>
+	</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			firstName:'Lebron',
+			LastName:'James',
+			books:[
+				{id:1100,name:'代码大全',price:109},
+				{id:1101,name:'深入理解计算机原理',price:59},
+				{id:1102,name:'现代操作系统',price:69},
+
+			]
+		},
+		methods:{
+			getFullName:function(){
+				console.log('getfullName');
+				return this.firstName + ' ' + this.LastName;
+			}
+		},
+		computed:{
+			fullName:function(){
+				console.log('fullName');
+				return this.firstName + ' ' + this.LastName;
+			}
+		}
+		
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 1.1放入两个参数
+        const sum = (num1, num2) => {
+                return num1 + num2;
+            }
+            //1.2放入一个参数
+        const power = num => {
+                num * num;
+            }
+            //  2.函数中
+            // 2.1函数中代码块中有多行代码
+        const test = () => {
+            console.log("hello");
+            console.log("hee");
+        }
+        test();
+        //2.2函数代码块中只有一行代码
+        // const mul= (num1, num2) => {
+        //         return num1 + num2;
+        //     }改写成下面
+        const mul = (num1, num2) => num1 * num2;
+        console.log(mul(2, 3))
+        const demo = () => console.log("demo log");
+        console.log(demo());
+    </script>
+</body>
+
+</html>

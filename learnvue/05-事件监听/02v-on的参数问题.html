@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<button @click='btn1'>按钮1</button>
+		<button @click='btn2()'>按钮2</button>
+		<button @click='btn3(avc,$event)'>按钮3</button>
+		<!-- 这里的avc会被当成变量，必须要被定义。 -->
+	</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			message:'nihao',
+			counter:0,
+			avc:111
+		},
+		methods:{
+			btn1(){
+				console.log('btn1被点击');
+			},
+			btn2(abc){
+				console.log(abc,'btn2被点击');
+			},//1.如果函数需要参数，但是没有传入，那么函数的形参为undefined；2.在事件定义时，写函数时省略了（），但是方法本身是需要一个参数的，这时候，vue会默认将浏览器产生的event时间对象作为参数传入到方法
+			btn3(abc,event){
+				console.log('+++',abc,event);
+			}//在调用方法时，如何手动获取到浏览器参数的event参数，$event
+		}
+	})
+</script>
+</body>
+</html>
